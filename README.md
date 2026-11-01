@@ -16,6 +16,9 @@ network unplugged.
 > Built for [Hacktoberfest 2026, Week 4: Ghost in the Machine](https://dev.to/challenges/hacktoberfest-week4-2026-10-26).
 > The demo altar is entirely fictional.
 
+**Live demo:** https://ofrenda-obes.onrender.com/p/elena — the public room runs in
+candlelight mode (no model call), so it can only quote the archive.
+
 ![The Ofrenda altar](docs/altar.png)
 
 ## Why this exists
