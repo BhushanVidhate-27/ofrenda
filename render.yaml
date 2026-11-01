@@ -1,0 +1,26 @@
+# A public reading room for the demo altar. The real archive lives on your
+# laptop; this instance is seeded at build time and speaks in candlelight mode
+# (quoted memories, no model) unless you attach an Ollama endpoint.
+services:
+  - type: web
+    name: ofrenda
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install --omit=dev && npm run seed
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: OFRENDA_INFERENCE
+        value: extract
+      - key: OFRENDA_MODEL
+        value: gemma3:4b
+      # Point this at an Ollama instance you trust (a GPU Droplet, a tunnel to
+      # your own machine) and set OFRENDA_INFERENCE=local to let Gemma answer.
+      - key: OLLAMA_URL
+        sync: false
+      - key: OFRENDA_REPO
+        value: https://github.com/BhushanVidhate-27/ofrenda

@@ -1,0 +1,22 @@
+{
+  "name": "ofrenda",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A local-first remembrance archive. Your family's stories stay on your machine; Gemma helps them speak.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "ofrenda": "./bin/ofrenda.js"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "seed": "node --env-file-if-exists=.env bin/ofrenda.js seed examples/elena",
+    "demo": "npm run seed && npm start",
+    "export": "node --env-file-if-exists=.env bin/ofrenda.js export elena dist/elena",
+    "test": "node --test test/*.test.js"
+  }
+}

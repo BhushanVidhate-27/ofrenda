@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-label="A paper portrait silhouette wreathed in marigolds">
+  <defs>
+    <radialGradient id="paper" cx="50%" cy="38%" r="78%">
+      <stop offset="0" stop-color="#f6ead2"/>
+      <stop offset="0.62" stop-color="#e9d7b8"/>
+      <stop offset="1" stop-color="#d8c09b"/>
+    </radialGradient>
+    <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b2418"/>
+      <stop offset="1" stop-color="#24150e"/>
+    </linearGradient>
+    <radialGradient id="flower" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffd27a"/>
+      <stop offset="0.55" stop-color="#e8972f"/>
+      <stop offset="1" stop-color="#b8452c"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="600" height="800" fill="url(#paper)"/>
+  <rect x="26" y="26" width="548" height="748" fill="none" stroke="#b08a5c" stroke-opacity="0.5" stroke-width="1.4"/>
+  <rect x="38" y="38" width="524" height="724" fill="none" stroke="#b08a5c" stroke-opacity="0.28" stroke-width="1"/>
+
+  <path d="M96 560c0-128 84-208 204-208s204 80 204 208v158H96Z" fill="#e5d2b1"/>
+  <path d="M96 560c0-128 84-208 204-208s204 80 204 208" fill="none" stroke="#c09a6a" stroke-opacity="0.55" stroke-width="1.2"/>
+
+  <g fill="url(#silhouette)">
+    <ellipse cx="300" cy="352" rx="86" ry="102"/>
+    <path d="M243 330c0-64 26-108 57-108s57 44 57 108c0 18-4 30-10 38-6-50-20-78-47-78s-41 28-47 78c-6-8-10-20-10-38Z" opacity="0.92"/>
+    <path d="M300 436c-76 0-128 46-146 118-10 40-14 78-14 118h320c0-40-4-78-14-118-18-72-70-118-146-118Z"/>
+    <path d="M214 520c30 22 62 34 86 34s56-12 86-34c6 34 8 68 8 96H206c0-28 2-62 8-96Z" opacity="0.55"/>
+  </g>
+
+  <g opacity="0.95">
+    <g transform="translate(128 690)">
+      <circle r="9" fill="url(#flower)"/>
+      <circle cx="-17" cy="8" r="8" fill="url(#flower)"/>
+      <circle cx="17" cy="8" r="8" fill="url(#flower)"/>
+      <circle cx="-9" cy="-16" r="7" fill="url(#flower)"/>
+      <circle cx="11" cy="-15" r="7" fill="url(#flower)"/>
+      <circle r="4" fill="#7a3b16"/>
+    </g>
+    <g transform="translate(470 702) scale(0.9)">
+      <circle r="9" fill="url(#flower)"/>
+      <circle cx="-17" cy="8" r="8" fill="url(#flower)"/>
+      <circle cx="17" cy="8" r="8" fill="url(#flower)"/>
+      <circle cx="-9" cy="-16" r="7" fill="url(#flower)"/>
+      <circle cx="11" cy="-15" r="7" fill="url(#flower)"/>
+      <circle r="4" fill="#7a3b16"/>
+    </g>
+  </g>
+
+  <g fill="#8a5a2a" opacity="0.45">
+    <circle cx="92" cy="132" r="2.2"/><circle cx="512" cy="176" r="1.8"/>
+    <circle cx="466" cy="96" r="2"/><circle cx="142" cy="220" r="1.6"/>
+    <circle cx="520" cy="640" r="2"/><circle cx="78" cy="606" r="1.7"/>
+  </g>
+
+  <rect width="600" height="800" filter="url(#grain)" opacity="0.9"/>
+</svg>

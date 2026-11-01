@@ -1,0 +1,54 @@
+{
+  "slug": "elena",
+  "name": "Elena Marisol Reyes",
+  "born": "1938",
+  "died": "2019",
+  "relationship": "my grandmother",
+  "epithet": "She kept the marigolds alive through a Chicago winter.",
+  "photo": null,
+  "offerings": {
+    "foods": [
+      "Mole negro, burned on purpose",
+      "Pan de muerto, no sugar on top",
+      "Café de olla"
+    ],
+    "songs": [
+      "Amorcito corazón — Pedro Infante",
+      "Las Mañanitas, sung badly and loud"
+    ],
+    "places": [
+      "The kitchen on 18th Street",
+      "The windowsill where the marigolds grew"
+    ],
+    "phrases": [
+      "¿Ya comiste?",
+      "La pena se va caminando."
+    ]
+  },
+  "remembrance": {
+    "text": "She sat at the kitchen table before the sun with a cup going cold, a habit she’d cultivated since she woke at four every morning. The tin of marigold seeds, a gift from her husband Tomás, rested beside the cup, a silent testament to her attempts to bring beauty to the shadowed hours. She’d tell you, with a dismissive wave of her hand, that \"La pena se va caminando,\" but the walk never truly ended, not for her. The smoke was the point, she insisted, a necessary ingredient for the mole negro she’d cook by candlelight, a ritual performed with a stubborn disregard for practicality and a deep-seated belief in the power of tradition. Even on the night of the blackout, when the block huddled on the stoops fanning themselves, she’d insisted on making the mole, burning the chiles until the air thickened with a bitter fragrance, a defiant offering to the darkness. She never measured, always relying on the palm of her hand, or the worn spoon from Oaxaca, a tangible link to a life lived far away, a life she guarded fiercely, even as she offered it freely.",
+    "epithet": "The smoke is the point.",
+    "sources": [
+      {
+        "id": "walking-undated",
+        "title": "La pena se va caminando",
+        "year": ""
+      },
+      {
+        "id": "seeds-1961",
+        "title": "A sewing machine and a tin of seeds",
+        "year": "1961"
+      },
+      {
+        "id": "smoke-1997",
+        "title": "The smoke was the point",
+        "year": "1997"
+      }
+    ],
+    "mode": "model",
+    "model": "gemma3:4b",
+    "generatedAt": "2026-11-01T05:23:33.933Z"
+  },
+  "createdAt": "2026-10-30T00:00:00.000Z",
+  "fictional": true
+}
