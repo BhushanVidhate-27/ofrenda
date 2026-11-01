@@ -116,8 +116,9 @@ memory files ──► retrieve.js ──► prompt ──► Gemma 3 (Ollama) �
 
 1. **Retrieval is deliberately boring.** `src/retrieve.js` scores memories with
    an IDF-weighted lexical match, accent-folded and lightly stemmed for English
-   and Spanish. No embeddings, no database, no service. It runs in microseconds
-   and you can explain every result.
+   and Spanish, and drops filler ("ever", "talk about") so an unrelated question
+   does not ride a common word into a wrong quote. No embeddings, no database, no
+   service. It runs in microseconds and you can explain every result.
 2. **The prompt is a contract.** `prompts/spirit.md` tells the model it is the
    reader of an archive, not the person in it; answer only from the memories,
    in under 90 words, and name the exact titles it used.

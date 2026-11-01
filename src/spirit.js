@@ -90,7 +90,7 @@ export function extractiveAnswer(person, memories, question, { note } = {}) {
   }
 
   const primary = ranked[0];
-  const quotes = bestSentences(primary.body, question, 2);
+  const quotes = bestSentences(primary.body, question, 3);
   const quote = quotes.join(" ");
   const second = ranked[1];
 

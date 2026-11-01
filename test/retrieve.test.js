@@ -48,3 +48,15 @@ test("a Spanish question finds the Spanish phrase", () => {
 test("no overlap means no invented context", () => {
   assert.deepEqual(retrieve(memories, "What was her password?"), []);
 });
+
+test("filler words alone do not count as a match", () => {
+  const archive = [
+    {
+      id: "walk",
+      title: "La pena se va caminando",
+      year: "",
+      body: "We did not talk for the first block. I only ever saw her walk.",
+    },
+  ];
+  assert.deepEqual(retrieve(archive, "Did she ever talk about her husband?"), []);
+});

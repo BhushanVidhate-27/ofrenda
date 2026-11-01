@@ -1,6 +1,12 @@
+// Two kinds of noise: grammar words, and the filler that shows up in every
+// spoken question ("ever", "talk about", "something"). Leaving the second kind
+// in means a question about a husband who is not in the archive matches a
+// memory that merely says "we did not talk". The archive should stay quiet
+// instead of quoting the wrong sentence.
 const STOPWORDS = new Set(
   `a an and are as at be been but by did do does for from had has have he her hers him his how i if in into is it its me my of on or our she so that the their them then there these they this to was we were what when where which who why will with you your
-  al algo como con cual cuando de del el ella ellas ellos en es esa ese eso esta este esto fue ha hasta la las le les lo los mas me mi mis muy no nos o para pero por porque que quien se sin sobre su sus tambien tan te tu tus un una uno unos y ya`.split(
+  al algo como con cual cuando de del el ella ellas ellos en es esa ese eso esta este esto fue ha hasta la las le les lo los mas me mi mis muy no nos o para pero por porque que quien se sin sobre su sus tambien tan te tu tus un una uno unos y ya
+  ever never always sometimes often usually really actually just also still even only again away around thing things something anything nothing someone somebody nobody anyone everyone people person time times way talk talked talking say says said tell tells told like liked want wanted happen happened mean meant`.split(
     /\s+/,
   ),
 );
@@ -15,9 +21,17 @@ export function tokenize(text) {
     .map(stem);
 }
 
-// Enough English/Spanish morphology to match "marigolds" to "marigold" and
-// "cooked" to "cook". Anything heavier would be pretending to be a search engine.
+// Enough English/Spanish morphology to match "marigolds" to "marigold",
+// "cooked" to "cook", and "crying" to "cried". Anything heavier would be
+// pretending to be a search engine.
 function stem(token) {
+  if (token.length > 4 && (token.endsWith("ies") || token.endsWith("ied"))) {
+    return `${token.slice(0, -3)}y`;
+  }
+  if (token.length > 5 && token.endsWith("ing")) {
+    const base = token.slice(0, -3);
+    if (base.length >= 3) return base;
+  }
   if (token.length > 4 && token.endsWith("es") && !token.endsWith("ses")) {
     return token.slice(0, -2);
   }
@@ -98,12 +112,21 @@ export function bestSentences(text, question, limit = 2) {
     return { sentence, score, index };
   });
 
-  return scored
-    .sort((a, b) => b.score - a.score || a.index - b.index)
-    .slice(0, limit)
-    .filter((entry) => entry.score > 0 || scored.length <= 2)
-    .sort((a, b) => a.index - b.index)
-    .map((entry) => entry.sentence);
+  const chosen = new Set();
+  const ranked = [...scored].sort((a, b) => b.score - a.score || a.index - b.index);
+  for (const entry of ranked) {
+    if (chosen.size >= limit) break;
+    if (entry.score <= 0 && scored.length > 2) continue;
+    chosen.add(entry.index);
+    // A sentence that answers the question rarely finishes the thought on its
+    // own: "she would not stop crying" needs the sentence after it.
+    for (let next = entry.index + 1; next < scored.length && chosen.size < limit; next += 1) {
+      chosen.add(next);
+    }
+  }
+
+  if (!chosen.size) return scored.slice(0, limit).map((entry) => entry.sentence);
+  return [...chosen].sort((a, b) => a - b).map((index) => scored[index].sentence);
 }
 
 export { STOPWORDS };
