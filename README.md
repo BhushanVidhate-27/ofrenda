@@ -56,7 +56,7 @@ npm start
 Open <http://localhost:3000/p/elena>. Press "Ask the archive" to talk to it, or
 "Write it again" to regenerate the remembrance.
 
-Nothing is installed from npm. There is no build step. `npm test` runs 23 tests
+Nothing is installed from npm. There is no build step. `npm test` runs 24 tests
 with no model and no network.
 
 ## The archive is a folder
@@ -179,7 +179,7 @@ memories survive deploys.
 ## Development
 
 ```bash
-npm test                 # 23 tests, no model required
+npm test                 # 24 tests, no model required
 npm run dev              # restart on change
 npm run export           # dist/elena, a static altar
 npm start                # http://localhost:3000
